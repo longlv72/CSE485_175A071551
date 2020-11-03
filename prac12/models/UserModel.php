@@ -3,10 +3,10 @@
    class UserModel extends Database{
     // Properties
        private $userID;
-       private $firstName;
-       private $lastName;
+       private $name;
+       private $username;
        private $email;
-       private $passsword;
+       private $password;
        private $activation_code;
        private $status;
        private $connection;

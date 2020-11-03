@@ -20,5 +20,3 @@
     $object = new $controller;
     $object->$action();
 ?>
-
-//sdung cai nay
