@@ -1,0 +1,56 @@
+footer.container-fluid {
+    background-color: #033678;
+}
+
+a.text-hover {
+    color: #ff7800;
+    transition: all .5s;
+}
+
+/* a.text-hover:hover {
+    color: #ff7800;
+    padding-left: 10px;
+} */
+
+.nav-footer-link li{
+    position: relative;
+    /* padding-left: 7px; */
+    list-style: none;
+}
+
+.nav-footer-link li:after {
+    color: #fff;
+    content: "-";
+    display: inline-block;
+    font-size: 12px;
+    left: 0;
+    position: absolute;
+    top: 2px;
+}
+
+ul.nav-footer-link li:hover a{
+    color: #ff7800;
+    padding-left: 10px;
+}
+
+
+/* global nav css */
+#header__top {
+    height: 30px;
+    background: #033678;
+    line-height: 30px;
+}
+
+#header__top a {
+    font-size: 13px;
+}
+
+#header__top a:hover {
+    color: #ff7800;
+}
+
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
