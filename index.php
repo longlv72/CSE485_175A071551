@@ -6,6 +6,7 @@
     <div class="row">
         <div class="col-md-8">
             <?php echo $_SESSION['name']; ?>
+            <?php echo $_SESSION['role_id']; ?>
         </div>
 
         <div class="col-md-4">

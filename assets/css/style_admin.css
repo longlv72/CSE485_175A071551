@@ -1,8 +1,8 @@
-
-
 #sidebar__admin_left{
     background-color:#2E3541;
     height: 100%;
+    position: sticky !important;
+    top: 0;
 }
 
 div#admin-right{
@@ -21,18 +21,17 @@ h1.title {
     line-height: 80px;
     cursor: pointer;
 }
- div.menu > ul li {
-     height: 50px;
-     line-height: 50px;
-     list-style: none;
-     
- }
+div.menu > ul li {
+    height: 50px;
+    line-height: 50px;
+    list-style: none;
+}                                                                      
 
- div.menu > ul li a{
-     color: white;
-     text-decoration: none;
-     display: block;
- }
+div.menu > ul li a{
+    color: white;
+    text-decoration: none;
+    display: block;
+}
 
 div.menu > ul li:hover a {
      padding-left: 10px;

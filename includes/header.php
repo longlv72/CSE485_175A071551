@@ -31,15 +31,23 @@
                             <a href="#" title="Tiếng Anh"></a><img src="assets/images/icons/icon-lang-en.png" alt="Tiếng Anh"></a>
                         </li>
 
-                        <?php if ( isset($_SESSION['name']) && isset($_SESSION['role_id']) ) { ?>  
+                        <?php if ( isset($_SESSION['name']) && isset($_SESSION['role_id']) && $_SESSION['role_id'] == 1) { ?> 
+                             
                             <li><a class="border-left pl-3" href="#">Xin chao <?php echo ' '.$_SESSION['name']; ?> </a></li>
                             <li><a class="border-left pl-3" href="http://localhost:8080/a_project/admin/user.php">Dardboard</a></li>  
                             <li><a class="border-left pl-3" id="btnLogout" href="http://localhost:8080/a_project/handle/handle_logout.php">Logout</a></li>  
 
-                        <?php } else { ?> 
+                        <?php } else if ( isset($_SESSION['name']) && isset($_SESSION['role_id']) && $_SESSION['role_id'] == 2) {  ?> 
+
+                            <li><a class="border-left pl-3" href="#">Xin chao <?php echo ' '.$_SESSION['name']; ?> </a></li>
+                            <li><a class="border-left pl-3" id="btnLogout" href="http://localhost:8080/a_project/handle/handle_logout.php">Logout</a></li>
+
+                        <?php } else if ( !isset($_SESSION['name']) && !isset($_SESSION['role_id'])) { ?>    
+
                             <li><a class="border-left pl-2" href="./user/login.php">Login </a></li>
-                            <li><a class="border-left pl-2" href="./user/register.php">Register</a></li>                            
-                        <?php } ?>                            
+                            <li><a class="border-left pl-2" href="./user/register.php">Register</a></li>  
+                            
+                        <?php } ?>                        
                     </ul>
 
                     <ul class="session_user">

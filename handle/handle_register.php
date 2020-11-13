@@ -49,7 +49,7 @@
                 </SCRIPT>";
                 return;
             }else {
-                $message = "Vui lòng đăng nhập vào mail để xác nhận tài khoản!";
+                $message = "Vui lòng đăng nhập vào mail ".$to." để xác nhận tài khoản!";
 
                 echo "<SCRIPT> //not showing me this
                     alert('$message')

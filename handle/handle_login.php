@@ -22,10 +22,9 @@
         {
             session_start();
             $_SESSION['name'] = $row['name'];
-            if($row['role_id'] == '1'){
-                $_SESSION['role_id'] = $row['role_id'];
-                $_SESSION['id'] = $row['id'];
-            }
+            $_SESSION['role_id'] = $row['role_id'];
+            $_SESSION['id'] = $row['id'];
+            
             header("location:../index.php");
             // if($row['is_active'] == '1'){
             //     $message = "Tài khoản của bạn chưa được kích hoạt";
