@@ -33,22 +33,6 @@ ul.nav-footer-link li:hover a{
     padding-left: 10px;
 }
 
-
-/* global nav css */
-#header__top {
-    height: 30px;
-    background: #033678;
-    line-height: 30px;
-}
-
-#header__top a {
-    font-size: 13px;
-}
-
-#header__top a:hover {
-    color: #ff7800;
-}
-
 #footer {
     position: fixed;
     left: 0;

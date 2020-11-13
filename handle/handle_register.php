@@ -1,11 +1,12 @@
 <?php
     require_once('../config/config.php');
     // echo "ket noi thanh cong";
-    $username = $_POST['username'];
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $password1 = $_POST['password1'];
-    $password2 = $_POST['password2'];
+    $username = trim( strip_tags( $_POST['username'] ));
+    $name = trim( strip_tags( $_POST['name'] ));
+    $email = trim( strip_tags( $_POST['email'] ));
+    $password1 = trim( strip_tags( $_POST['password1'] ));
+    $password2 = trim( strip_tags( $_POST['password2'] ));
+    
     $password_hash = password_hash($password, PASSWORD_DEFAULT);
     $checkUnique = "SELECT * FROM users WHERE email = '$email'";
     $activation_code = substr(md5(uniqid(rand(), true)), 16, 16);
@@ -33,9 +34,9 @@
             $noidungthu = "Chao mung ban den voi trang Web cua toi. De kich hoat tai khoan, vui long truy cap duong link duoi day";        
             $noidungthu .= '<a href="http://localhost:8080/a_project/handle/active-user.php?code='.$activation_code.'">Click Here</a>';
                 
-            $from = "longlv72@wru.vn";
+            $from = "longlv197@gmail.com";
             //pass email gmail
-            $pass = "long!((&"; 
+            $pass = "&991Gnol"; 
             $error = '';
             $m -> sendMailFromLocalhost($to, $from, $tennguoigui="ĐHTL", $tieudethu, $noidungthu, $from, $pass, $error);
             if( $error != '' ) {
@@ -48,7 +49,13 @@
                 </SCRIPT>";
                 return;
             }else {
-                echo "Vui lòng đăng nhập vào mail để xác nhận tài khoản!";
+                $message = "Vui lòng đăng nhập vào mail để xác nhận tài khoản!";
+
+                echo "<SCRIPT> //not showing me this
+                    alert('$message')
+                    window.location.replace('../user/login.php');
+                </SCRIPT>";
+                return;
             }
 
         }

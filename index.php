@@ -5,7 +5,7 @@
     
     <div class="row">
         <div class="col-md-8">
-
+            <?php echo $_SESSION['name']; ?>
         </div>
 
         <div class="col-md-4">

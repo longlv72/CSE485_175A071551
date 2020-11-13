@@ -16,12 +16,12 @@
                 <h2>Login-TLU</h2>
             </div>
     
-            <form class="form" id="form">
+            <form class="form" id="form" method="post" action="../handle/handle_login.php">
     
                 <!-- email -->
                 <div class="form-control">
                     <label>Email</label>
-                    <input type="text" placeholder="longlv72@wru.vn" id="email">
+                    <input type="text" placeholder="longlv72@wru.vn" id="email" name="email">
                     <i class="fas fa-check-circle"></i>
                     <i class="fas fa-exclamation-circle"></i>
                     <small>Error message</small>
@@ -30,7 +30,7 @@
                  <!-- email -->
                  <div class="form-control">
                     <label>Password</label>
-                    <input type="password" placeholder="password" id="password">
+                    <input type="password" placeholder="password" id="password" name="password">
                     <i class="fas fa-check-circle"></i>
                     <i class="fas fa-exclamation-circle"></i>
                     <small>Error message</small>

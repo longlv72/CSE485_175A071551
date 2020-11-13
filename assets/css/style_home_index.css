@@ -8,7 +8,7 @@
 
 .globalnav {
     background: #003478;
-    height: 30px;
+    height: 40px;
     left: 0;
     position: sticky;
     top: 0;
@@ -19,8 +19,8 @@
 #header__top {
     color: #fff;
     font-family: 'Roboto Condensed', sans-serif;
-    height: 30px;
-    line-height: 30px;
+    height: 40px;
+    line-height: 40px;
     padding-right: 25px;
     position: relative;
     padding: 0 10px;
@@ -28,8 +28,12 @@
     justify-content: space-between;
 }
 
+#header__top a:hover {
+    color: #ff7800;
+}
+
 #header__top a, #header__top .language span {
-    font-size: 13.5px;
+    font-size: 14px;
     font-weight: 600;
     color: #fff;
     text-decoration: none;
