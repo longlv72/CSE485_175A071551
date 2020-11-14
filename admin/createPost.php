@@ -10,14 +10,14 @@
     </div>
     <div class="row mt-3">
         <div class="col-lg-9">
-            <form action="#" method="post" class="container mt-4 mb-4" enctype="multipart/form-data">
+            <form action="post-action/add-post.php" method="post" class="container mt-4 mb-4" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="">Title</label>
                     <input type="text" class="form-control" name="txtTitle" id="">
                 </div>
                 <div class="form-group">
-                    <label for="">Description</label>
-                    <input type="text" class="form-control" name="txtDescription" id="" >
+                    <label for="">Summary</label>
+                    <input type="text" class="form-control" name="txtSummary" id="" >
                 </div>
                 <div class="form-group">
                     <label for="">Content</label>

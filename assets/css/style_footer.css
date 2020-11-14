@@ -34,7 +34,7 @@ ul.nav-footer-link li:hover a{
 }
 
 #footer {
-    position: fixed;
     left: 0;
     bottom: 0;
+    position: fixed;
 }

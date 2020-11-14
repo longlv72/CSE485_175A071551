@@ -13,6 +13,11 @@
             <a name="" id="" class="btn btn-success" href="http://localhost:8080/a_project/admin/createPost.php" role="button">(+) Add Post</a>
         </div>
     </div>
+    <div class="row mt-3" id="list-posts">
+        <div class="col-lg-12 col-md-9">
+            
+        </div>
+    </div>
 </main>
 
 <?php require '../includes/admin/footer_admin.php'; ?>

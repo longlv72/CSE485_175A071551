@@ -40,6 +40,28 @@
             
         </div>
     </div>
+
+    <!-- modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Do you want to delete?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="btn-ok" class="btn btn-primary">Delete</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-12">
             <table class="table">
@@ -49,6 +71,7 @@
                     <th scope="col">Name</th>
                     <th scope="col">Username</th>
                     <th scope="col">Email</th>
+                    <th scope="col">Active</th>
                     <!-- <th scope="col">Password</th> -->
                     <th scope="col">Role</th>
                     <th scope="col">Action</th>
@@ -70,13 +93,14 @@
                         <td><?php echo $row["name"]; ?></td>
                         <td><?php echo $row['username']; ?></td>
                         <td><?php echo $row['email']; ?></td>
+                        <td><?php if($row['is_active']== 1) echo 'ACTIVED'; else echo 'NONE ACTIVE'; ?></td>
                         <td><?php if($row['role_id'] == 1) echo 'ADMIN'; else echo 'STUDENT';?></td>
                         <td>
                             <button class="btn btn-warning mr-3 btn-edit" user-id="<?php echo $row["id"]; ?>" username="<?php echo $row["username"]; ?>" email="<?php echo $row["email"]; ?>" role="<?php echo $row["role_id"]; ?>"  name="<?php echo $row["name"]; ?>">Edit</button>
                         <?php if( $row['role_id'] == 1) { ?>  
-                            <button class="btn btn-danger" disabled>Delete</button>
+                            <button class="btn btn-danger" id="btn-cancel" disabled>Delete</button>
                             <?php } else { ?>
-                                <button class="btn btn-danger btn-delete" id="<?php echo $row["id"]; ?>">Delete</button>
+                                <button class="btn btn-danger btn-delete" data-toggle="modal" data-target="#exampleModal" data-whatever="<?php echo $row["id"]; ?>" id="<?php echo $row["id"]; ?>">Delete</button>
                             <?php } ?>
                         </td>
                         
@@ -118,25 +142,66 @@
             $('#form-add').attr('display', 1)
         }
     })
+    // $('#confirm-delete').on('click', '#btn-ok', function(e) {
+    //         var $modalDiv = $(e.delegateTarget);
+    //         var id = $('.btn-delete').attr(id);
+    //         console.log(id);
+    //         // $.ajax({url: '/api/record/' + id, type: 'DELETE'})
+    //         // $.post('/api/record/' + id).then()
+    //         $modalDiv.addClass('loading');
+    //         setTimeout(function() {
+    //             $modalDiv.modal('hide').removeClass('loading');
+    //         }, 1000)
+    //     });
+        // $('#confirm-delete').on('show.bs.modal', function(e) {
+        //     var data = $(e.relatedTarget).data();
+        //     var id = $(this).attr('id');
+        //     console.log(id);
+        //     $('.title', this).text(data.recordTitle);
+        //     $('.btn-ok', this).data('recordId', data.recordId);
+        // });
 
-    $(document).on('click', '.btn-delete', function() {
-        var id = $(this).attr('id')
-        $.ajax({
-            type : 'POST',
-            url : 'user-action/delete-user.php',
-            data : {
-                'id_delete' : id
-            },
-            success : function(data1) {
-                if(data1 == "true") {
-                    alert("xoa thanh cong");
-                    location.reload();
-                } else {
-                    alert("Xoa that bai");
+    // bên bootstrap
+    $( document ).ready(function() {
+    // console.log( "ready!" );
+        $('#exampleModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var id = button.data('whatever')
+            $('#btn-ok').click(function(){
+                // console.log('ok')
+                $.ajax({
+                    type : 'POST',
+                    url : 'user-action/delete-user.php',
+                    data : {
+                        'id_delete' : id
+                    },
+                    success : function(data1) {
+                        location.reload();
                 }
-                console.log(data1);
-            }
+            })
+            })
         })
+    });
+    $(document).on('click', '.btn-delete', function() {
+        
+        var id = $(this).attr('id')
+        // console.log(id);
+        // $.ajax({
+        //     type : 'POST',
+        //     url : 'user-action/delete-user.php',
+        //     data : {
+        //         'id_delete' : id
+        //     },
+        //     success : function(data1) {
+        //         if(data1 == "true") {
+        //             alert("xoa thanh cong");
+        //             location.reload();
+        //         } else {
+        //             alert("Xoa that bai");
+        //         }
+        //         console.log(data1);
+        //     }
+        // })
     })
 
     $('#save-info').click(function() {
@@ -170,6 +235,7 @@
                 },
                 success : function(data) {
                     // console.log(data);
+                    alert("Sửa thanh cong");
                     location.reload();
                     
                 }
