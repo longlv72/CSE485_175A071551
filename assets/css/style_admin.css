@@ -74,3 +74,8 @@ ul#admin_logout li:hover a{
 label{
     line-height: 30px;
 }
+
+img.img-post {
+    height: 60px;
+    width: 60px;
+}

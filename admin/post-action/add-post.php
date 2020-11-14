@@ -5,7 +5,7 @@
     $title = $_POST['txtTitle'];
     $summary = $_POST['txtSummary'];
     $content = $_POST['txtContent'];
-    $image = '../assets/image/imgPost/'.($_FILES["fileToUpload"]["name"]);
+    $image = '../assets/images/imgPost/'.($_FILES["fileToUpload"]["name"]);
     $user_id = $_SESSION['id'];
     require_once('../../config/config.php');
     $sql ="INSERT INTO posts (post_name, post_summary, post_content,image) VALUES ('$title','$summary','$content','$image')";
